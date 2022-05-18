@@ -1,17 +1,17 @@
 variable "hcloud_token" {
-	type = string
-	sensitive = true
+  type = string
+  sensitive = true
 }
 
 module "kube-hetzner" {
   source  = "kube-hetzner/kube-hetzner/hcloud"
 
-	hcloud_token = var.hcloud_token
+  hcloud_token = var.hcloud_token
 
-	public_key = "../misc/ssh-hk-cluster.pub"
-	private_key = "../misc/ssh-hk-cluster"
+  public_key = "../misc/ssh-hk-cluster.pub"
+  private_key = "../misc/ssh-hk-cluster"
 
-	network_region = "eu-central" # change to `us-east` if location is ash
+  network_region = "eu-central" # change to `us-east` if location is ash
 
   control_plane_nodepools = [
     {
